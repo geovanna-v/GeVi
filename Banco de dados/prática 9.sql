@@ -20,7 +20,10 @@ id_quiz INT,
 pontuacao VARCHAR(5),
 duracao DECIMAL(2),
 posicao VARCHAR(2),
+dtQuiz DATE,
 CONSTRAINT fk_usuario
 	FOREIGN KEY (id_usuario) REFERENCES usuario(idUsuario),
 CONSTRAINT fk_quiz
 	FOREIGN KEY (id_quiz) REFERENCES quiz(idQuiz));
+    
+SELECT * FROM usuario;
