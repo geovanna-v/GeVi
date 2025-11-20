@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+}
+.header{
+    background-color: #b6b6b6;
+    border-bottom: 0px solid ;
+}
+
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 120px;
+}
+.titulo{
+    color: black;
+}
+
+.navbar{
+    display: flex;
+    list-style: none;
+    width: 300px;
+    justify-content: space-between;
+    color: black;
+}
+
+.navbar a{
+    color: black;
+    outline: none;
+    text-decoration: none;
+}
+
+/* Deixando em negrito o caminho da página */
+.agora{
+    font-weight: bolder;
+}
+
+.banner .carrossel{
+    height: 350px;
+    width: 100%;
+}
+
+.carrossel img{
+    width: 15%;
+}
+
+.meus_pilares img{
+    width: 15%;
+}
+
+.personalidade img{
+    width: 10%;
+}
+
+.familia img{
+    width: 10%;
+}
+
+.footer{
+    height: 120px;
+    width: 100%;
+    background-color: #b6b6b6;
+}
+
+.footer .container{
+     height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.footer .left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

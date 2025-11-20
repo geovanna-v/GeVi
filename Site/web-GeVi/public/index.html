@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeVi | Home</title>
 
-    <link rel="stylesheet" href="../public/style/style.css">
+    <link rel="stylesheet" href="../public/style/index.css">
     <link rel="icon" href="../public/assets/icon/icon_GeVi.jpg"> <!-- vai ficar com a logo ao lado do título da página -->
     <script src="./js/sessao.js"></script>
 
@@ -16,10 +16,10 @@
 <body>
     <div class="header">
         <div class="container">
+            <h1 class="titulo">GeVi</h1>
             <ul class="navbar">
                 <li class="agora">
-                    <h1><a href="#">GeVi</a></h1>
-                    <img src="">
+                    <a href="#">Inicial</a>
                 </li>
                 <li class="curiosidades">
                     <a href="curiosidades.html">Curiosidades</a>
@@ -39,11 +39,55 @@
     </div>
 
     <div class="banner">
-        <div class="container">
-            <!--Aqui devo inserir as fotos do carrossel e suas legendas  -->
+        <div class="carrossel">
+                <li class="index_0">
+                    <img src="./assets/img/carrossel/ft_horizonte.jpg">
+                </li>
+
+                <li class="index_1">
+                    <img src="./assets/img/carrossel/ft_show.jpg">
+                </li>
+
+                <li class="index_2">
+                    <img src="./assets/img/carrossel/ft_casamento.jpg">
+                </li>
+
+                <li class="index_3">
+                    <img src="./assets/img/carrossel/ft_sparring.jpg">
+                </li>
+
+                <li class="index_4">
+                    <img src="./assets/img/carrossel/ft_capitã.jpg">
+                </li>
+
+                <li class="index_5">
+                    <img src="./assets/img/carrossel/ft_quadriciculo.jpg">
+                </li>
+
+                <li class="index_6">
+                    <img src="./assets/img/carrossel/ft_montanha.jpg">
+                </li>
+
+                <li class="index_7">
+                    <img src="./assets/img/carrossel/ft_faculdade.jpg">
+                </li>
+
+                <li class="index_8">
+                    <img src="./assets/img/carrossel/ft_cupnodles.jpg">
+                </li>
+
+                <li class="index_9">
+                    <img src="./assets/img/carrossel/ft_trilho.jpg">
+                </li>
+
+            <button onclick="voltar()">&#8678;</button>
+            <button onclick="proximo()">&#8680;</button>
         </div>
     </div>
-
+    <!-- Utilizei o Toptals para pegar o código das setas -->
+     <!-- Assisti ao vídeo 
+      "How to create an animated image carousel wirh css/javascript" 
+      para me auxiliar na estilização do carrossel -->
     <div class="social">
         <div class="container">
             <div class="sobre_mim">
@@ -62,7 +106,7 @@
                 <div class="imagens">
                 <img class="img1" src="./assets/img/personalidade/ft_sorrindo.jpg">
                 <img class="img2" src="./assets/img/personalidade/ft_marrenta.jpg">
-                <img class="img3" src="">
+                <img class="img3" src="./assets/img/personalidade/ft_arma.jpg">
                 <img class="img4" src="./assets/img/personalidade/ft_peixes.jpg">
                 </div>
             </div>

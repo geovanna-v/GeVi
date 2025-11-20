@@ -1,0 +1,129 @@
+body{
+    margin: 0;
+}
+.header{
+    background-color: #b6b6b6;
+    border-bottom: 0px solid ;
+}
+
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 120px;
+}
+.titulo{
+    color: black;
+}
+
+.navbar{
+    display: flex;
+    list-style: none;
+    width: 300px;
+    justify-content: space-between;
+    color: black;
+}
+
+.navbar a{
+    color: black;
+    outline: none;
+    text-decoration: none;
+}
+
+
+.login {
+    height: 570px;
+    width: 100%;
+}
+
+.login .container{
+height: 100%;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.container .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center ;
+    text-align: center;
+    background-color: #dcdcdc;
+    border-radius: 9px;
+    height: 240px;
+    width: 560px;
+    color: #ed145b;
+}
+
+.card span{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0;
+
+}
+
+input {
+    height: 35px;
+    width: 420px;
+    border-radius: 7px;
+    border-color: #32b9cd;
+    border-style: solid;
+    margin-bottom: 10px;
+    
+}
+
+input::placeholder {
+    text-align: center;
+    font-size: 14px;
+}
+
+button {
+    background-color: #ed145b;
+    border-radius: 3px;
+    color: white;
+    
+}
+.login .container_cadastro {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-cadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center ;
+    text-align: center;
+    background-color: #dcdcdc;
+    border-radius: 9px;
+    height: 550px;
+    width: 560px;
+    color: #ed145b;
+}
+
+.footer{
+    height: 120px;
+    width: 100%;
+    background-color: #b6b6b6;
+}
+
+.footer .container{
+     height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.footer .left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
