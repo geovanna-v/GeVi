@@ -10,10 +10,11 @@
     <!-- <link rel="icon" href="./img/icon/"> vai ficar com a logo ao lado do título da página -->
     <script src="./js/sessao.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
-<body onload="onloadEsconder()"> <!-- esconde o conteúdo do quiz dentro da função (declarada na linha 202)-->
+<body onload="onloadEsconder(); obterDados()"> <!-- esconde o conteúdo do quiz dentro da função (declarada na linha 202)-->
     <div class="header">
         <div class="container">
             <h1 class="titulo">GeVi</h1>
@@ -106,7 +107,6 @@
                         <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
                         <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
                         <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button>
-                        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
                     </div>
                     
                 </div>
@@ -114,6 +114,8 @@
 
             <div class="ranking">
                 <h3>Ranking</h3>
+                <canvas id="barra"></canvas>
+
             </div>
         </div>
     </div>
@@ -223,7 +225,7 @@
         btnSubmeter.disabled = false
         btnProx.disabled = true
         // btnConcluir.disabled = true
-        btnTentarNovamente.disabled = true
+        // btnTentarNovamente.disabled = true
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
@@ -291,10 +293,10 @@
         limparCoresBackgroundOpcoes()
     }
 
-    function tentarNovamente() {
-        // atualiza a página
-        window.location.reload()
-    }
+    // function tentarNovamente() {
+    //     // atualiza a página
+    //     window.location.reload()
+    // }
 
     function checarResposta() {
         const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
@@ -381,4 +383,54 @@
         btnTentarNovamente.disabled = false
 
     }
+
+    function obterDados(){
+  // Aqui seria a função que obteria os dados do banco de dados
+  // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
+ 
+  fetch('/dashboard/listar')
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
+    plotarGraficoBarra(data);
+  })
+  .catch(function(err){
+    console.log(err);
+  })
+    }
+
+// Função para plotar o gráfico de barra
+function plotarGraficoBarra(dados){
+
+  var nome = [];
+  var pontuacao_final = [];
+
+  // Preenchendo os arrays com os dados
+  for(var i = 0; i < dados.length; i++){
+    nome.push(dados[i].nome);
+    pontuacao_final.push(dados[i].pontuacao_final);
+  }
+
+  // Capturando o elemento canvas pelo id 
+  var ctx = document.getElementById('barra').getContext('2d');
+  // Criando o gráfico de barra usando o Chart.js
+  var myChart = new Chart(ctx, {
+      type: 'bar', // Tipo de gráfico: barra
+      data: { // Dados para o gráfico
+          labels: 'Pontuação final', // Rótulos no eixo X
+          datasets: [{
+              label: 'Nome', // Nome do conjunto de dados
+              data: nome, // Dados dos votos
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)', // Cor de fundo das barras
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)', // Cor da borda das barras
+              ],
+              borderWidth: 1 // Largura da borda das barras
+          }]
+      },
+  });
+}
 </script>
