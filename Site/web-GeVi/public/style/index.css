@@ -1,9 +1,12 @@
 body{
     margin: 0;
 }
-.header{
+
+.header {
     background-color: #b6b6b6;
     border-bottom: 0px solid ;
+
+
 }
 
 .header .container{
@@ -35,21 +38,63 @@ body{
     font-weight: bolder;
 }
 
-.banner .carrossel{
-    height: 350px;
+.banner{
+    height: 570px;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.banner .carrossel{
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+
 }
 
 .carrossel img{
-    width: 15%;
+    width: 180px;
+}
+
+.banner button{
+    display: flex;
+    justify-content: space-around;
+    height: 10px;
+}
+
+/* onclick na imagem | span onclick*/
+
+.social{
+    margin: 0;
+    padding: 0;
+    height: 250px;
+    width: 100%;
+}
+
+.social #sobre_mim{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social #paragrafo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .meus_pilares img{
     width: 15%;
 }
 
+.personalidade {
+    width: 10%;
+    display: flex;
+    
+}
+
 .personalidade img{
     width: 10%;
+    
 }
 
 .familia img{
@@ -57,13 +102,13 @@ body{
 }
 
 .footer{
-    height: 120px;
+    height: 100%;
     width: 100%;
     background-color: #b6b6b6;
 }
 
 .footer .container{
-     height: 100%;
+    height: 250px;
     width: 100%;
     display: flex;
     flex-direction: column;

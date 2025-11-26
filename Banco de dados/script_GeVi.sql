@@ -1,13 +1,4 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql server
-*/
-
 CREATE DATABASE GeVi;
-
 USE GeVi;
 
 CREATE TABLE usuario(
@@ -35,4 +26,27 @@ CONSTRAINT fk_usuario
 	FOREIGN KEY (id_usuario) REFERENCES usuario(idUsuario),
 CONSTRAINT fk_quiz
 	FOREIGN KEY (id_quiz) REFERENCES quiz(idQuiz));
+    
+INSERT INTO quiz (pergunta, pontuacao) VALUES
+	('Qual é meu quarto pilar?', 100),
+    ('Quais esportes eu pratico?', 100),
+	('Qual meu time favorito?', 100),
+	('Qual é meu segundo pilar?', 100),
+	('O que tinha no meu carrossel?', 100);
 
+SELECT u.nome_completo AS Nome,
+    r.pontuacao_final AS Pontuacao
+FROM usuario AS u
+JOIN resultado AS r ON id_usuario = idUsuario
+WHERE r.id_quiz = 1 
+ORDER BY r.pontuacao_final DESC;
+
+SELECT SUM(pontuacao) AS total_pontos
+FROM quiz;
+
+
+
+
+
+
+	

@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeVi</title>
 
-    <link rel="stylesheet" href="../public/style/quiz.css">
-    <link rel="icon" href="../public/img/icon/"> <!-- vai ficar com a logo ao lado do título da página -->
+    <link rel="stylesheet" href="./style/quiz.css">
+    <!-- <link rel="icon" href="./img/icon/"> vai ficar com a logo ao lado do título da página -->
     <script src="./js/sessao.js"></script>
 
 
 </head>
 
-<body>
+<body onload="onloadEsconder()"> <!-- esconde o conteúdo do quiz dentro da função (declarada na linha 202)-->
     <div class="header">
         <div class="container">
             <h1 class="titulo">GeVi</h1>
@@ -39,95 +39,106 @@
     </div>
 
     <div class="social">
+        <div class="titulo">
+            <h2>O quanto você descobriu sobre mim</h2>
+        </div>
         <div class="container">
-            <div class="titulo">
-           <h2>O quanto você descobriu sobre mim</h2>
+            <div id="pontuacaoEJogo">
+               
+               <div class="botao_iniciar">
+                   <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+               </div>
+
+                <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                    <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                        <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+
+                        <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                    </div>
+                    <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                        <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                            <span id="spanPontuacaoFinal"></span>
+                        </span>
+                        <span id="msgFinal" class="width-fit-content"></span>
+                    </div>
+                </div>
+
+                <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+                    <div id="infoQuestao" class="padding-8">
+                        <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"> </span> de <span
+                                id="qtdQuestoes"></span>
+                            questões.</span> 
+                    </div>
+
+                    <div id="perguntaDaQuestaoAtual" class="padding-8">
+                        <span id="spanQuestaoExibida" class="text-bold"></span>
+                    </div>
+
+                    <div id="infoAlternativas" class="padding-8">
+                        <span><em></em></span>
+                    </div>
+
+                    <div id="opcoes" class="flex-colunar padding-8">
+                        <span>
+                            <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                            <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                            <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                            <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                            <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="quintaOpcao" name="option" class="radio" value="alternativaE" />
+                            <label for="quintaOpcao" class="option" id="labelOpcaoCinco"></label>
+                        </span>
+
+                    </div>
+                    <div id="botoes_de_acao" class="flex-colunar padding-8">
+                        <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                        <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                        <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button>
+                        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                    </div>
+                    
+                </div>
             </div>
-
-    <div id="pontuacaoEJogo">
-        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
-
-        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
-            </div>
-            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                    <span id="spanPontuacaoFinal">***</span>
-                </span>
-                <span id="msgFinal" class="width-fit-content">***</span>
-            </div>
-        </div>
-
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
-
-            <div id="infoQuestao" class="padding-8">
-                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
-                    questões.</span>
-            </div>
-
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
-                <span id="spanQuestaoExibida" class="text-bold"></span>
-            </div>
-
-            <div id="infoAlternativas" class="padding-8">
-                <span><em>Escolha uma opção dentre as abaixo:</em></span>
-            </div>
-
-            <div id="opcoes" class="flex-colunar padding-8">
-                <span>
-                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                </span>
-                <span>
-                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                </span>
-                <span>
-                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                </span>
-                <span>
-                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                </span>
-            </div>
-
-            <div id="botoes" class="flex-colunar padding-8">
-                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
-            </div>
-
-        </div>
-    </div>
 
             <div class="ranking">
-
+                <h3>Ranking</h3>
             </div>
+        </div>
+    </div>
 
     <div class="footer">
         <div class="container">
             <div class="left">
-            <p>Cada detalhe foi feito e pensado 
-            com carinho</p>
+                <p>Cada detalhe foi feito e pensado
+                    com carinho</p>
             </div>
 
             <div class="center">
-            <h5>©2025 Geovanna</h5>
+                <h5>©2025 Geovanna</h5>
             </div>
 
             <div class="right">
-            <h4>Contatos</h4>
-            <h5>geovanna.oliveira@sptech.school</h5>
-            <h5>Geovanna Vitoriana</h5>
+                <h4>Contatos</h4>
+                <h5>geovanna.oliveira@sptech.school</h5>
+                <h5>Geovanna Vitoriana</h5>
             </div>
         </div>
     </div>
 
 </body>
+
 </html>
 
 <script>
@@ -159,7 +170,8 @@
             alternativaA: "São Paulo",
             alternativaB: "Corinthians",
             alternativaC: "Palmeiras",
-            alternativaD: "Nenhuma das opções",
+            alternativaD: "Santos",
+            alternativaE: "Nenhuma das opções",
             alternativaCorreta: "alternativaB"
         },
 
@@ -226,6 +238,7 @@
         document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
         document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
         document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+        document.getElementById("labelOpcaoCinco").innerHTML = questaoAtual.alternativaE;
     }
 
     function submeter() {
@@ -308,7 +321,7 @@
                 numeroDaQuestaoAtual++
             } else if (option.checked && option.value !== respostaQuestaoAtual) {
                 const wrongLabelId = option.labels[0].id
-                const alternativaCorreta= option.labels[0].id
+                const alternativaCorreta = option.labels[0].id
 
                 document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
                 document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
@@ -353,14 +366,14 @@
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('jogo').classList.add("text-new-gray")
 
         btnProx.disabled = true
         btnSubmeter.disabled = true

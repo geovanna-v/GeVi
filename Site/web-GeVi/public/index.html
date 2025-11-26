@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeVi | Home</title>
 
-    <link rel="stylesheet" href="../public/style/index.css">
-    <link rel="icon" href="../public/assets/icon/icon_GeVi.jpg"> <!-- vai ficar com a logo ao lado do título da página -->
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="icon" href="./assets/icon/icon_GeVi.jpg"> <!-- vai ficar com a logo ao lado do título da página -->
     <script src="./js/sessao.js"></script>
 
 
 </head>
 
 <body>
+    <div id="div_teste"></div>
     <div class="header">
         <div class="container">
             <h1 class="titulo">GeVi</h1>
@@ -40,62 +41,51 @@
 
     <div class="banner">
         <div class="carrossel">
-                <li class="index_0">
-                    <img src="./assets/img/carrossel/ft_horizonte.jpg">
-                </li>
-
-                <li class="index_1">
-                    <img src="./assets/img/carrossel/ft_show.jpg">
-                </li>
-
-                <li class="index_2">
-                    <img src="./assets/img/carrossel/ft_casamento.jpg">
-                </li>
-
-                <li class="index_3">
-                    <img src="./assets/img/carrossel/ft_sparring.jpg">
-                </li>
-
-                <li class="index_4">
-                    <img src="./assets/img/carrossel/ft_capitã.jpg">
-                </li>
-
-                <li class="index_5">
-                    <img src="./assets/img/carrossel/ft_quadriciculo.jpg">
-                </li>
-
-                <li class="index_6">
-                    <img src="./assets/img/carrossel/ft_montanha.jpg">
-                </li>
-
-                <li class="index_7">
-                    <img src="./assets/img/carrossel/ft_faculdade.jpg">
-                </li>
-
-                <li class="index_8">
-                    <img src="./assets/img/carrossel/ft_cupnodles.jpg">
-                </li>
-
-                <li class="index_9">
-                    <img src="./assets/img/carrossel/ft_trilho.jpg">
-                </li>
-
             <button onclick="voltar()">&#8678;</button>
+            <li class="index_0">
+                <img src="./assets/img/carrossel/ft_horizonte.jpg">
+            </li>
+
+            <li class="index_1">
+                <img src="./assets/img/carrossel/ft_show.jpg">
+            </li>
+
+            <li class="index_2">
+                <img src="./assets/img/carrossel/ft_casamento.jpg">
+            </li>
+
+            <li class="index_3">
+                <img src="./assets/img/carrossel/ft_sparring.jpg">
+            </li>
+
+            <li class="index_4">
+                <img src="./assets/img/carrossel/ft_capitã.jpg">
+            </li>
+
+            <li class="index_5">
+                <img src="./assets/img/carrossel/ft_quadriciculo.jpg">
+            </li>
+
+            <li class="index_6">
+                <img src="./assets/img/carrossel/ft_cupnodles.jpg">
+            </li>
+
+
             <button onclick="proximo()">&#8680;</button>
         </div>
     </div>
     <!-- Utilizei o Toptals para pegar o código das setas -->
-     <!-- Assisti ao vídeo 
+    <!-- Assisti ao vídeo 
       "How to create an animated image carousel wirh css/javascript" 
       para me auxiliar na estilização do carrossel -->
     <div class="social">
         <div class="container">
             <div class="sobre_mim">
-                <h3>Sobre mim</h3>
+                <h3 id="sobre_mim">Sobre mim</h3>
 
-                <p>Sou uma garota que gosta de viajar, conhecer novas pessoas, 
-                ter novas experiências e praticar esportes. Valorizo muito o tempo de
-                qualidade com as pessoas ao meu redor e amo estar com minha família e amigos.</p>
+                <p id="paragrafo">Sou uma garota que gosta de viajar, conhecer novas pessoas,
+                    ter novas experiências e praticar esportes. Valorizo muito o tempo de
+                    qualidade com as pessoas ao meu redor e amo estar com minha família e amigos.</p>
             </div>
             <div class="meus_pilares">
                 <h3>Meus pilares:</h3>
@@ -104,23 +94,23 @@
             <div class="personalidade">
                 <h3>Personalidade</h3>
                 <div class="imagens">
-                <img class="img1" src="./assets/img/personalidade/ft_sorrindo.jpg">
-                <img class="img2" src="./assets/img/personalidade/ft_marrenta.jpg">
-                <img class="img3" src="./assets/img/personalidade/ft_arma.jpg">
-                <img class="img4" src="./assets/img/personalidade/ft_peixes.jpg">
+                    <img class="img1" src="./assets/img/personalidade/ft_sorrindo.jpg">
+                    <img class="img2" src="./assets/img/personalidade/ft_marrenta.jpg">
+                    <img class="img3" src="./assets/img/personalidade/ft_arma.jpg">
+                    <img class="img4" src="./assets/img/personalidade/ft_peixes.jpg">
                 </div>
             </div>
             <div class="familia">
                 <h3>Família</h3>
                 <div class="imagens">
-                <img class="img1" src="./assets/img/família/ft_mae.jpg">
-                <img class="img2" src="./assets/img/família/ft_vo_tio.jpg">
-                <img class="img3" src="./assets/img/família/ft_tioxandy.jpg">
-                <img class="img4" src="./assets/img/família/ft_adis.jpg">
-                <img class="img5" src="./assets/img/família/ft_pai.png">
-                <img class="img6" src="./assets/img/família/ft_familia.jpg">
-                <img class="img7" src="./assets/img/família/ft_montinho.jpg">
-                <img class="img8" src="./assets/img/família/ft_milla_rudah.jpg">
+                    <img class="img1" src="./assets/img/família/ft_mae.jpg">
+                    <img class="img2" src="./assets/img/família/ft_vo_tio.jpg">
+                    <img class="img3" src="./assets/img/família/ft_tioxandy.jpg">
+                    <img class="img4" src="./assets/img/família/ft_adis.jpg">
+                    <img class="img5" src="./assets/img/família/ft_pai.png">
+                    <img class="img6" src="./assets/img/família/ft_familia.jpg">
+                    <img class="img7" src="./assets/img/família/ft_montinho.jpg">
+                    <img class="img8" src="./assets/img/família/ft_milla_rudah.jpg">
                 </div>
             </div>
         </div>
@@ -129,18 +119,18 @@
     <div class="footer">
         <div class="container">
             <div class="left">
-            <p>Cada detalhe foi feito e pensado 
-            com carinho</p>
+                <p>Cada detalhe foi feito e pensado
+                    com carinho</p>
             </div>
 
             <div class="center">
-            <h5>©2025 Geovanna</h5>
+                <h5>©2025 Geovanna</h5>
             </div>
-            
+
             <div class="right">
-            <h4>Contatos</h4>
-            <h5>geovanna.oliveira@sptech.school</h5>
-            <h5>Geovanna Vitoriana</h5>
+                <h4>Contatos</h4>
+                <h5>geovanna.oliveira@sptech.school</h5>
+                <h5>Geovanna Vitoriana</h5>
             </div>
         </div>
     </div>
